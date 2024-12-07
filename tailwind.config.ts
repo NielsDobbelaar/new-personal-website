@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+// @ts-expect-error - Tailwind CSS plugin
+import clipPath from 'tailwind-clip-path';
 
 export default {
   content: [
@@ -8,11 +10,20 @@ export default {
   ],
   theme: {
     extend: {
+      clipPath: {
+        archTop: 'ellipse(50% 100% at 50% 100%)',
+        archBottom: 'ellipse(50% 100% at 50% 0%)',
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        darkBase: "#34344A",
+        lightBlueBase: "#DFE8FF",
+        darkBlueBase: "#1E3A8A",
+        lightBase: "#FFFFFF",
+        lightBlueSecondary: "D8CEF6",
+        subtleBorder: "#C8C8C8",
+
       },
     },
   },
-  plugins: [],
+  plugins: [clipPath],
 } satisfies Config;
