@@ -5,10 +5,13 @@ import Button from '../common/Button';
 import Link from 'next/link';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { usePathname } from 'next/navigation';
 
 export default function Nav() {
   const [isMobile, setIsMobile] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+
+  const path = usePathname();
 
   useEffect(() => {
     const updateIsDesktop = () => {
@@ -33,7 +36,7 @@ export default function Nav() {
     { isMobile ? <Button text='Blog' onClick={()=> {}} variant='outline'/ > : (
       <section className='flex cursor-pointer flex-row items-center gap-8'>
         <section className='hover:bg-darkBase group flex flex-row items-center gap-2 rounded px-2 transition-all duration-300'>
-          <Link href="/blog" className='group-hover:text-lightBlueBase text-2xl transition-all duration-300 xl:text-3xl'> Blog </Link> 
+        { path !== '/blog' && (<Link href="/blog" className='group-hover:text-lightBlueBase text-2xl transition-all duration-300 xl:text-3xl'> Blog </Link> )}
             <span className='hidden  h-full justify-center transition-all duration-300 group-hover:flex'>
               <FontAwesomeIcon
                 icon={faAngleRight}
