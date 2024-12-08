@@ -1,12 +1,13 @@
 import Hero from "@/components/Hero/Hero";
+import AboutMeSection from "@/components/sections/AboutMeSection";
+import TechnologiesSection from "@/components/sections/TechnologiesSection";
 
 export default function Home() {
   return (
     <>
     <Hero />
-      <div className="flex min-h-full items-center justify-center">
-        <h1 className="block text-4xl font-bold">Hello, world!</h1>
-      </div>
-    </>
+    <AboutMeSection />
+    <TechnologiesSection />
+   </>
   );
 }
