@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { DM_Sans } from 'next/font/google';
+import Nav from "@/components/Nav/Nav";
 
 export const metadata: Metadata = {
   title: "Niels Dobbelaar",
@@ -21,11 +21,13 @@ export default function RootLayout({
   return (
     <html className={dmSans.className} lang="en">
       <body className="antialiased">
-      <Header />
+        <header>
+          <Nav />
+        </header>
         <main>
-        {children}
+          {children}
         </main>
-      <Footer />
+        <Footer />
       </body>
     </html>
   );

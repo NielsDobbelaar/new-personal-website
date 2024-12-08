@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function Footer() {
   const router = useRouter();
 
-   const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const updateIsDesktop = () => {
@@ -34,7 +34,7 @@ export default function Footer() {
   return (
     <footer className="absolute bottom-0 flex w-full grid-cols-12 flex-col bg-white">
       <article className="bg-lightBlueBase relative size-full px-4 py-10 md:grid md:grid-cols-12">
-        <RoundedSeparator color="lightBlueBase" />
+        <RoundedSeparator color="lightBlueBase"  />
         <section className="col-start-2 col-end-5 lg:col-end-6 xl:col-end-5">
           <h2 className=" text-lg font-bold md:text-xl lg:text-2xl">Niels Dobbelaar</h2>
           <h3 className="text-sm lg:text-base xl:text-lg">A motivated and enthusiastic frontend/ web developer and UX designer</h3>

@@ -7,7 +7,7 @@ interface ButtonProps {
   text: string;
   onClick: () => void;
   variant: "solid" | "outline";
-  light: boolean;
+  light?: boolean;
 }
 export default function Button(props: ButtonProps) {
   const { text, onClick, variant, light } = props;
@@ -39,18 +39,18 @@ export default function Button(props: ButtonProps) {
 
   return (
     <button 
-      className={`duration-500" group relative rounded-lg py-2 pl-1 pr-6 text-sm transition-all md:text-base ${getButtonClasses()}`}
+      className={`duration-500" group relative flex flex-row justify-between rounded-lg p-2 text-center text-sm transition-all md:text-base ${getButtonClasses()}`}
       onClick={onClick}
       > 
       {text}
-      <span>
+      <span className="relative block h-full w-4">
         <FontAwesomeIcon
           icon={faAngleRight}
-          className="absolute right-1 top-[50%] mr-2 translate-y-[-50%] opacity-100 transition-opacity duration-500  ease-in-out group-hover:opacity-0"
+          className="absolute right-0 top-1/2 -translate-y-1/2 opacity-100 transition-opacity duration-500  ease-in-out group-hover:opacity-0"
         />
         <FontAwesomeIcon
           icon={faArrowRight}
-          className="absolute right-1 top-[50%] mr-2 translate-y-[-50%] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"
+          className="absolute right-0 top-1/2 -translate-y-1/2  opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"
         />
       </span>
     </button>
