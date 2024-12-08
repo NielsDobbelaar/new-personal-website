@@ -32,7 +32,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="absolute bottom-0 flex w-full grid-cols-12 flex-col bg-white">
+    <footer className="mt-10 flex w-full grid-cols-12 flex-col bg-white">
       <article className="bg-lightBlueBase relative size-full px-4 py-10 md:grid md:grid-cols-12">
         <RoundedSeparator color="lightBlueBase"  />
         <section className="col-start-2 col-end-5 lg:col-end-6 xl:col-end-5">

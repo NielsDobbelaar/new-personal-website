@@ -20,11 +20,11 @@ export default function RootLayout({
 
   return (
     <html className={dmSans.className} lang="en">
-      <body className="antialiased">
+      <body className="min-h-screen antialiased">
         <header>
           <Nav />
         </header>
-        <main>
+        <main className="">
           {children}
         </main>
         <Footer />
