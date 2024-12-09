@@ -1,4 +1,3 @@
-import tailwindcss from "prettier-plugin-tailwindcss";
 module.exports = {
   semi: true,
   singleQuote: true,
@@ -6,6 +5,6 @@ module.exports = {
   tabWidth: 2,
   useTabs: false,
   printWidth: 80,
-  endOfLine: "lf",
-  plugins: [tailwindcss],
+  endOfLine: "auto",
+  plugins: [import('prettier-plugin-tailwindcss')],
 };

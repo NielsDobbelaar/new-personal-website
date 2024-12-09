@@ -1,9 +1,5 @@
-export default async function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ postId: string }>
-}) {
-  const postId =(await params).postId;
+export default async function BlogPostPage({ params }: { params: Promise }) {
+  const postId = (await params).postId;
 
   return (
     <div className="flex min-h-full items-center justify-center">
