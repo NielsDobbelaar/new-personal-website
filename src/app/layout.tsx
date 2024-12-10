@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html className={dmSans.className} lang="en">
       <body className="flex min-h-screen flex-col antialiased">
-        <header>
+        <header id="topAnchor">
           <Nav />
         </header>
         <main className="flex grow flex-col">{children}</main>

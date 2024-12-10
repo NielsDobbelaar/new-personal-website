@@ -33,7 +33,7 @@ export default function Button(props: ButtonProps) {
           : 'border border-darkBase'
         : '';
     const hoverClass =
-      variant === 'outline' || (variant === 'text' && light)
+      (variant === 'outline' && light) || (variant === 'text' && light)
         ? 'hover:bg-lightBase hover:text-darkBase'
         : 'hover:bg-darkBase hover:text-lightBase';
 
@@ -42,7 +42,7 @@ export default function Button(props: ButtonProps) {
 
   return (
     <button
-      className={`duration-500" group relative flex flex-row items-center justify-between rounded-lg p-2 text-center text-sm transition-all md:text-base 2xl:text-xl ${getButtonClasses()}`}
+      className={`duration-500" group relative flex flex-row items-center justify-between gap-2 rounded-lg p-2 text-center text-sm transition-all md:text-base 2xl:text-xl ${getButtonClasses()}`}
       onClick={onClick}
     >
       {text}

@@ -3,6 +3,8 @@ import Button from '@/components/common/Button';
 import RoundedSeparator from '../common/roundedSeparator';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const router = useRouter();
@@ -30,6 +32,13 @@ export default function Footer() {
     router.push('/blog');
   };
 
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <footer className="mt-10 flex w-full grid-cols-12 flex-col bg-white">
       <article className="relative size-full bg-lightBlueBase px-4 py-10 md:grid md:grid-cols-12">
@@ -53,7 +62,7 @@ export default function Footer() {
               />
               <Button
                 text="Go to top"
-                onClick={() => {}}
+                onClick={goToTop}
                 variant="outline"
                 light={false}
               />
@@ -61,8 +70,25 @@ export default function Footer() {
             <section className="col-start-10 col-end-12 flex flex-col lg:col-start-11 lg:col-end-11">
               <h2 className="text-3xl font-bold">Socials</h2>
               <section className="flex flex-row justify-start gap-4">
-                <div className="size-[32px] bg-darkBase" />
-                <div className="size-[32px] bg-darkBase" />
+                <Link
+                  target="_blank"
+                  href="https://www.linkedin.com/in/niels-dobbelaar-084619274/"
+                >
+                  <Image
+                    alt="linkedIn"
+                    src="/linkedIn.svg"
+                    height={isDesktop ? 32 : 24}
+                    width={isDesktop ? 32 : 24}
+                  />
+                </Link>
+                <Link target="_blank" href="https://github.com/NielsDobbelaar">
+                  <Image
+                    alt="github"
+                    src="/github.svg"
+                    height={isDesktop ? 32 : 24}
+                    width={isDesktop ? 32 : 24}
+                  />
+                </Link>
               </section>
             </section>
           </>
@@ -71,8 +97,25 @@ export default function Footer() {
             <section className="flex flex-col justify-start">
               <h2 className="text-xl font-bold">Socials</h2>
               <section className="flex flex-row justify-between">
-                <div className="size-[32px] bg-darkBase" />
-                <div className="size-[32px] bg-darkBase" />
+                <Link
+                  target="_blank"
+                  href="https://www.linkedin.com/in/niels-dobbelaar-084619274/"
+                >
+                  <Image
+                    alt="linkedIn"
+                    src="/linkedIn.svg"
+                    height={isDesktop ? 32 : 24}
+                    width={isDesktop ? 32 : 24}
+                  />
+                </Link>
+                <Link target="_blank" href="https://github.com/NielsDobbelaar">
+                  <Image
+                    alt="github"
+                    src="/github.svg"
+                    height={isDesktop ? 32 : 24}
+                    width={isDesktop ? 32 : 24}
+                  />
+                </Link>
               </section>
             </section>
             <section className="flex max-h-9 flex-row gap-4">
@@ -84,7 +127,7 @@ export default function Footer() {
               />
               <Button
                 text="Go to top"
-                onClick={() => {}}
+                onClick={goToTop}
                 variant="outline"
                 light={false}
               />
