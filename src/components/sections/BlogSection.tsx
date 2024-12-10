@@ -24,16 +24,16 @@ export default function BlogSection(props: BlogSectionProps) {
   return (
     <article className="relative mb-16 grid grid-cols-8 gap-2 bg-lightBlueBase px-6 py-24 lg:grid-cols-12 lg:gap-4 lg:pt-32">
       {!neighborTop && <AngledSeparator color="lightBlueBase" left />}
-      <section className="col-span-full flex flex-row justify-between md:col-span-10 md:col-start-2">
+      <section className="col-span-full flex flex-row justify-between md:col-span-6 md:col-start-2">
         <SectionTitle title="Blog" />
         <Button text="View all" variant="text" onClick={() => {}} />
       </section>
       {/* Blog posts */}
-      <section className="xcol-span-full grid grid-cols-4 gap-2 md:col-span-10 md:col-start-2 lg:grid-cols-7 2xl:grid-cols-6">
+      <section className="col-span-full grid grid-cols-4 gap-2 md:col-span-6 md:col-start-2 lg:grid-cols-7 2xl:grid-cols-6">
         {data.map((post: BlogPost, idx: number) => (
           <Link
             href={`/blog/${post.documentId}`}
-            className={`relative col-span-3 flex aspect-square flex-col justify-end rounded-lg bg-darkBase object-cover 2xl:col-span-2 ${idx == 1 && 'lg:col-span-4 lg:aspect-auto 2xl:col-span-4'}`}
+            className={`relative col-span-2 flex aspect-square flex-col justify-end rounded-lg bg-darkBase object-cover 2xl:col-span-2 ${idx == 1 && 'lg:col-span-4 lg:aspect-auto 2xl:col-span-4'}`}
             key={post.id}
           >
             <Image

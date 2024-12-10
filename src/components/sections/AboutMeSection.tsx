@@ -17,7 +17,7 @@ export default function AboutMeSection(props: AboutMeData) {
       : '/nielsDobbelaar.webp';
 
   return (
-    <article className="mx-6 my-32 grid grid-cols-8 gap-2 lg:grid-cols-12 lg:gap-4">
+    <article className="mx-6 mb-32 grid grid-cols-8 gap-2 lg:grid-cols-12 lg:gap-4">
       <section className="col-span-4 col-start-1 sm:col-start-2 lg:col-start-3">
         <SectionTitle title="About me" />
       </section>
