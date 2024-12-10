@@ -32,7 +32,7 @@ export default function TechnologiesSection(props: TechnologiesSectionProps) {
   }, []);
 
   return (
-    <article className="relative mt-8 grid grid-cols-8 gap-2 bg-darkBase px-6 py-16 lg:grid-cols-12 lg:gap-4">
+    <article className="relative grid w-full grid-cols-8 gap-2 bg-darkBase px-6 py-16 lg:grid-cols-12 lg:gap-4">
       <RoundedSeparator color="darkBase" />
       {/* Section description / title */}
       <section className="col-span-full grid grid-cols-8 gap-2 lg:col-span-8 lg:col-start-3 lg:flex lg:flex-row-reverse lg:justify-between xl:col-start-4">

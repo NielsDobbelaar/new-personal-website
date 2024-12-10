@@ -5,10 +5,12 @@ import BlogSection from '@/components/sections/BlogSection';
 import TechnologiesSection from '@/components/sections/TechnologiesSection';
 import getAboutMeData from '@/utils/api/getAboutMeData';
 import getTechnologiesData from '@/utils/api/getTechnologiesData';
+import getBlogData from '@/utils/api/getBlogData';
 
 export default async function Home() {
   let aboutMeData = await getAboutMeData();
   const technologiesData = await getTechnologiesData();
+  const blogData = await getBlogData();
 
   // @ts-expect-error backup data not conforming to types
   if (!aboutMeData) aboutMeData = aboutMeBackup;
@@ -18,7 +20,12 @@ export default async function Home() {
       <Hero />
       <AboutMeSection data={aboutMeData} />
       {technologiesData && <TechnologiesSection data={technologiesData} />}
-      <BlogSection />
+      {blogData && blogData.data.length > 1 && (
+        <BlogSection
+          data={blogData.data.slice(0, 2)}
+          neighborTop={technologiesData ? true : false}
+        />
+      )}
     </>
   );
 }

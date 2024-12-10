@@ -14,6 +14,10 @@ export default {
         archTop: 'ellipse(50% 100% at 50% 100%)',
         archBottom: 'ellipse(50% 100% at 50% 0%)',
       },
+      fontSize: {
+        '2xs': ['0.625rem', '0.875rem'],
+        '3xs': ['0.5rem', '0.75rem'],
+      },
       colors: {
         darkBase: '#34344A',
         lightBlueBase: '#DFE8FF',
