@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 // @ts-expect-error - Tailwind CSS plugin
 import clipPath from 'tailwind-clip-path';
+import typography from '@tailwindcss/typography';
 
 export default {
   content: [
@@ -28,5 +29,5 @@ export default {
       },
     },
   },
-  plugins: [clipPath],
+  plugins: [clipPath, typography],
 } satisfies Config;

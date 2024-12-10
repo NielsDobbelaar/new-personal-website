@@ -1,3 +1,4 @@
+import Placeholder from '@/components/common/Placeholder';
 import SectionTitle from '@/components/common/SectionTitle';
 import Hero from '@/components/Hero/Hero';
 import { BlogPost } from '@/types/blogTypes';
@@ -23,19 +24,7 @@ export default async function BlogHome() {
       <Hero />
       <article className="mx-6 grid grow grid-cols-8 gap-2 sm:mt-0 xl:my-16">
         {!blogposts ? (
-          <section className="col-span-8 col-start-1 my-8 flex grow flex-col items-center justify-start">
-            <Image
-              src="/sad.svg"
-              alt="Not found"
-              className="lg:w-1/8 aspect-square w-1/4 sm:w-1/12"
-              width={200}
-              height={200}
-            />
-            <h3 className="mt-4 text-center text-xl font-bold">
-              Oops! Something went wromg <br />
-              No blogposts found.
-            </h3>
-          </section>
+          <Placeholder message="No blogposts found, try again later!" />
         ) : (
           <>
             <section className="col-start-1 mb-4">
