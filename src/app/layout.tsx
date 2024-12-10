@@ -11,14 +11,16 @@ export const metadata: Metadata = {
 
 const dmSans = DM_Sans({ subsets: ['latin'] });
 
-export default function RootLayout({ children }: Readonly) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html className={dmSans.className} lang="en">
-      <body className="min-h-screen antialiased">
+      <body className="flex min-h-screen flex-col antialiased">
         <header>
           <Nav />
         </header>
-        <main className="">{children}</main>
+        <main className="flex grow flex-col">{children}</main>
         <Footer />
       </body>
     </html>

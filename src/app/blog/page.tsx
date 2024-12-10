@@ -1,12 +1,82 @@
+import SectionTitle from '@/components/common/SectionTitle';
 import Hero from '@/components/Hero/Hero';
+import { BlogPost } from '@/types/blogTypes';
+import getBlogData from '@/utils/api/getBlogData';
+import Image from 'next/image';
+import Link from 'next/link';
 
-export default function BlogHome() {
+export default async function BlogHome() {
+  const blogposts = await getBlogData();
+
+  const dateOptions: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit',
+  };
+
+  const calculateCols = (bp: BlogPost[]) => {
+    return bp.length > 4 ? '2xl:grid-cols-4' : '2xl:grid-cols-' + bp.length;
+  };
+
   return (
     <>
       <Hero />
-      <div className="flex min-h-full items-center justify-center">
-        <h1 className="block text-4xl font-bold">BlogHome</h1>
-      </div>
+      <article className="mx-6 grid grow grid-cols-8 gap-2 sm:mt-0 xl:my-16">
+        {!blogposts ? (
+          <section className="col-span-8 col-start-1 my-8 flex grow flex-col items-center justify-start">
+            <Image
+              src="/sad.svg"
+              alt="Not found"
+              className="lg:w-1/8 aspect-square w-1/4 sm:w-1/12"
+              width={200}
+              height={200}
+            />
+            <h3 className="mt-4 text-center text-xl font-bold">
+              Oops! Something went wromg <br />
+              No blogposts found.
+            </h3>
+          </section>
+        ) : (
+          <>
+            <section className="col-start-1 mb-4">
+              <SectionTitle title="Blogposts" />
+            </section>
+            <section
+              className={`col-span-8 col-start-1 mb-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ${calculateCols(blogposts.data)}`}
+            >
+              {blogposts.data.map((post: BlogPost) => (
+                <Link
+                  className="group rounded-lg transition-all duration-500 hover:bg-darkBase hover:p-4"
+                  href={`/blog/${post.documentId}`}
+                  key={post.documentId}
+                >
+                  <Image
+                    src={process.env.NEXT_PUBLIC_BASE_URL + post.image.url}
+                    alt={post.Title}
+                    className="mb-2 aspect-video w-full rounded-lg object-cover"
+                    width={400}
+                    height={200}
+                  />
+                  <section className="mx-4">
+                    <h4 className="line-clamp-2 text-xl font-bold text-darkBlueBase group-hover:text-lightBlueBase xl:text-2xl">
+                      {post.Title}
+                    </h4>
+                    <p className="font-sm italic text-darkBase group-hover:text-white">
+                      {new Date(post.publishedAt).toLocaleDateString(
+                        'nl-NL',
+                        dateOptions
+                      )}
+                    </p>
+                    <p className="line-clamp-3 group-hover:text-white">
+                      {post.subtitle}
+                    </p>
+                  </section>
+                </Link>
+              ))}
+            </section>
+          </>
+        )}
+      </article>
     </>
   );
 }
