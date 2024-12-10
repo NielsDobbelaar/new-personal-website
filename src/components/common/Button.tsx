@@ -5,7 +5,7 @@ import { faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 interface ButtonProps {
   text: string;
   onClick: () => void;
-  variant: 'solid' | 'outline';
+  variant: 'solid' | 'outline' | 'text';
   light?: boolean;
 }
 export default function Button(props: ButtonProps) {
@@ -13,13 +13,13 @@ export default function Button(props: ButtonProps) {
 
   const getButtonClasses = () => {
     const bgClass =
-      variant === 'outline'
+      variant === 'outline' || variant === 'text'
         ? 'bg-transparent'
         : light
           ? 'bg-lightBlueBase'
           : 'bg-darkBase';
     const textClass =
-      variant === 'outline'
+      variant === 'outline' || variant === 'text'
         ? light
           ? 'text-lightBase'
           : 'text-darkBase'
@@ -33,7 +33,7 @@ export default function Button(props: ButtonProps) {
           : 'border border-darkBase'
         : '';
     const hoverClass =
-      variant === 'outline' && light
+      variant === 'outline' || (variant === 'text' && light)
         ? 'hover:bg-lightBase hover:text-darkBase'
         : 'hover:bg-darkBase hover:text-lightBase';
 
@@ -42,7 +42,7 @@ export default function Button(props: ButtonProps) {
 
   return (
     <button
-      className={`duration-500" group relative flex flex-row justify-between rounded-lg p-2 text-center text-sm transition-all md:text-base ${getButtonClasses()}`}
+      className={`duration-500" group relative flex flex-row items-center justify-between rounded-lg p-2 text-center text-sm transition-all md:text-base ${getButtonClasses()}`}
       onClick={onClick}
     >
       {text}

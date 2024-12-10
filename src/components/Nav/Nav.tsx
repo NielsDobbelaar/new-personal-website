@@ -48,10 +48,9 @@ export default function Nav() {
             {path !== '/blog' && (
               <Link
                 href="/blog"
-                className="text-2xl transition-all duration-300 group-hover:text-lightBlueBase xl:text-3xl"
+                className="text-2xl text-darkBase transition-all duration-300 group-hover:text-lightBlueBase xl:text-3xl"
               >
-                {' '}
-                Blog{' '}
+                Blog
               </Link>
             )}
             <span className="hidden h-full justify-center transition-all duration-300 group-hover:flex">
