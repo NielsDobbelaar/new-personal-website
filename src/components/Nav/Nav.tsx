@@ -37,7 +37,7 @@ export default function Nav() {
           src="/logo.png"
           height={isDesktop ? 60 : 40}
           width={isDesktop ? 60 : 40}
-          alt="Logo"
+          alt="My logo!"
         />
       </Link>
       {isMobile ? (

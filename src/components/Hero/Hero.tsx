@@ -52,7 +52,7 @@ export default function Hero() {
       <Image
         className="absolute bottom-8 right-4 md:left-2/3 lg:left-auto lg:right-16 xl:right-32 2xl:right-[10%] 2xl:mt-16"
         src="/heroImg.webp"
-        alt="Hero image"
+        alt="Hero image showing a computer screen with code"
         width={imageSize}
         height={imageSize}
       />

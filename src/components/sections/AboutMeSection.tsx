@@ -25,7 +25,7 @@ export default function AboutMeSection(props: AboutMeData) {
         <section className="mb-4 flex w-3/5 items-center justify-center lg:w-1/4">
           <Image
             src={image}
-            alt="Image of Niels"
+            alt="Image showing Niels Dobbelaar"
             className="aspect-square rounded-2xl"
             width={250}
             height={250}
@@ -38,12 +38,11 @@ export default function AboutMeSection(props: AboutMeData) {
                 {section.children.map((child: Section, idx: number) => (
                   <Fragment key={idx}>
                     {child.bold ? (
-                      <p className="inline text-xs font-bold sm:text-base xl:text-lg 2xl:text-xl">
+                      <b className="inline text-xs sm:text-base xl:text-lg 2xl:text-xl">
                         {child.text}
-                      </p>
+                      </b>
                     ) : (
                       <p className="inline text-xs sm:text-base xl:text-lg 2xl:text-xl">
-                        {' '}
                         {child.text}
                       </p>
                     )}

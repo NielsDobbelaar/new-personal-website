@@ -39,7 +39,7 @@ export default function BlogSection(props: BlogSectionProps) {
             <Image
               className="absolute size-full rounded-xl"
               src={process.env.NEXT_PUBLIC_BASE_URL + post.image.url}
-              alt={post.Title}
+              alt={'cover image: ' + post.Title}
               width={1000}
               height={1000}
             />
