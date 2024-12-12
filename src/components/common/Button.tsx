@@ -1,6 +1,7 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 interface ButtonProps {
   text: string;
@@ -42,11 +43,11 @@ export default function Button(props: ButtonProps) {
 
   return (
     <button
-      className={`group relative flex flex-row items-center justify-between gap-2 rounded-lg p-2 text-center text-sm transition-all duration-500 2xl:text-lg ${getButtonClasses()}`}
+      className={`relative flex flex-row items-center justify-between gap-2 rounded-lg p-2 text-center text-sm transition-all duration-500 2xl:text-lg ${getButtonClasses()}`}
       onClick={onClick}
     >
       {text}
-      <span className="relative block h-full w-4">
+      <span className="relative block h-full w-4 text-base">
         <FontAwesomeIcon
           icon={faAngleRight}
           className="absolute right-0 top-1/2 -translate-y-1/2 opacity-100 transition-opacity duration-500 ease-in-out group-hover:opacity-0"

@@ -7,6 +7,7 @@ import SectionTitle from '../common/SectionTitle';
 import Image from 'next/image';
 import Link from 'next/link';
 import RoundedSeparator from '../common/roundedSeparator';
+import { useRouter } from 'next/navigation';
 
 interface BlogSectionProps {
   neighborTop?: boolean;
@@ -15,6 +16,8 @@ interface BlogSectionProps {
 
 export default function BlogSection(props: BlogSectionProps) {
   const { neighborTop, data } = props;
+
+  const router = useRouter();
 
   const dateOptions: Intl.DateTimeFormatOptions = {
     year: 'numeric',
@@ -26,7 +29,13 @@ export default function BlogSection(props: BlogSectionProps) {
       {!neighborTop && <AngledSeparator color="lightBlueBase" left />}
       <section className="col-span-full flex flex-row justify-between md:col-span-6 md:col-start-2 lg:col-span-10 lg:col-start-2">
         <SectionTitle title="Blog" />
-        <Button text="View all" variant="text" onClick={() => {}} />
+        <Button
+          text="View all"
+          variant="text"
+          onClick={() => {
+            router.push('/blog');
+          }}
+        />
       </section>
       {/* Blog posts */}
       <section className="col-span-full grid grid-cols-4 gap-2 md:col-span-6 md:col-start-2 lg:col-span-10 lg:col-start-2 lg:grid-cols-7 2xl:grid-cols-6">
