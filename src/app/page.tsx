@@ -1,4 +1,3 @@
-import aboutMeBackup from '@/backupData/aboutMeBackup';
 import Hero from '@/components/Hero/Hero';
 import AboutMeSection from '@/components/sections/AboutMeSection';
 import BlogSection from '@/components/sections/BlogSection';
@@ -12,16 +11,40 @@ import ExperienceSection from '@/components/sections/experienceSection';
 import getWorkExperiencesDate from '@/utils/api/getWorkExperiencesData';
 import getEducationData from '@/utils/api/getEducationData';
 
+//backup
+
 export default async function Home() {
   let aboutMeData = await getAboutMeData();
   const technologiesData = await getTechnologiesData();
   const blogData = await getBlogData();
-  const projectsData = await getProjectsData();
-  const workExperiencesData = await getWorkExperiencesDate();
-  const educationData = await getEducationData();
+  let projectsData = await getProjectsData();
+  let workExperiencesData = await getWorkExperiencesDate();
+  let educationData = await getEducationData();
 
-  // @ts-expect-error backup data not conforming to types
-  if (!aboutMeData) aboutMeData = aboutMeBackup;
+  if (!aboutMeData) {
+    const { default: aboutMeBackkup } = await import(
+      '@/backupData/aboutMeBackup'
+    );
+    aboutMeData = aboutMeBackkup;
+  }
+  if (!projectsData) {
+    const { default: projectsBackupData } = await import(
+      '@/backupData/projectsBackup'
+    );
+    projectsData = projectsBackupData;
+  }
+  if (!workExperiencesData) {
+    const { default: experienceBackupData } = await import(
+      '@/backupData/experienceBackup'
+    );
+    workExperiencesData = experienceBackupData;
+  }
+  if (!educationData) {
+    const { default: educationBackupData } = await import(
+      '@/backupData/educationBackup'
+    );
+    educationData = educationBackupData;
+  }
 
   return (
     <>
@@ -36,11 +59,11 @@ export default async function Home() {
       )}
       {workExperiencesData && educationData && (
         <ExperienceSection
-          workData={workExperiencesData.data}
-          educationData={educationData.data}
+          workData={workExperiencesData.data.reverse()}
+          educationData={educationData.data.reverse()}
         />
       )}
-      {projectsData && <ProjectsSection data={projectsData.data} />}
+      <ProjectsSection data={projectsData.data.reverse()} />
     </>
   );
 }

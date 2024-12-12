@@ -59,7 +59,8 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
     if (!swiperRef.current) return;
 
     if (activeSlide) setActiveSlide(activeSlide - 1);
-    if (activeSlide !== data.length - 1) swiperRef.current.slidePrev();
+    if (activeSlide !== data.length - 1 || isMobile)
+      swiperRef.current.slidePrev();
   };
 
   return (
@@ -129,7 +130,7 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
                 <section
                   className={`absolute line-clamp-1 flex size-full flex-col p-4 transition-transform duration-300 ease-in-out lg:p-8 ${!(activeSlide === idx) ? 'items-center justify-center' : 'items-start justify-between'}`}
                 >
-                  <div className="max-h-[80%] overflow-hidden">
+                  <div className="max-h-[80%] overflow-scroll">
                     <h4
                       className={`mb-2 text-lg font-semibold text-white sm:text-2xl xl:text-3xl`}
                     >

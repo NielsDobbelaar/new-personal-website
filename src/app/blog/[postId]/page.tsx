@@ -1,4 +1,4 @@
-import BackButton from '@/components/common/BackButton';
+import NotFound from '@/app/not-found';
 import Placeholder from '@/components/common/Placeholder';
 import { getBlogPost } from '@/utils/api/getBlogData';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
@@ -13,11 +13,11 @@ export default async function BlogPostPage({
 
   const blogPost = await getBlogPost(postId);
 
-  return !blogPost ? (
-    <article className="mx-6 grid grow grid-cols-8 gap-2 sm:mt-0 xl:my-16">
-      <Placeholder message="Blogpost could not load, Try again later" />
-    </article>
-  ) : (
+  if (!blogPost) {
+    return <NotFound />;
+  }
+
+  return (
     <article className="relative">
       <section className="prose col-span-full mx-6 mb-16 mt-4 md:mx-auto">
         <Image

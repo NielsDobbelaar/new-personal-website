@@ -1,4 +1,6 @@
-const aboutMeBackup = {
+import AboutMe from '@/types/aboutMeTypes';
+
+const aboutMeBackup: AboutMe = {
   data: {
     content: [
       {
