@@ -6,15 +6,19 @@ import TechnologiesSection from '@/components/sections/TechnologiesSection';
 import getAboutMeData from '@/utils/api/getAboutMeData';
 import getTechnologiesData from '@/utils/api/getTechnologiesData';
 import getBlogData from '@/utils/api/getBlogData';
-import ExperienceSection from '@/components/sections/experienceSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import getProjectsData from '@/utils/api/getProjectsData';
+import ExperienceSection from '@/components/sections/experienceSection';
+import getWorkExperiencesDate from '@/utils/api/getWorkExperiencesData';
+import getEducationData from '@/utils/api/getEducationData';
 
 export default async function Home() {
   let aboutMeData = await getAboutMeData();
   const technologiesData = await getTechnologiesData();
   const blogData = await getBlogData();
   const projectsData = await getProjectsData();
+  const workExperiencesData = await getWorkExperiencesDate();
+  const educationData = await getEducationData();
 
   // @ts-expect-error backup data not conforming to types
   if (!aboutMeData) aboutMeData = aboutMeBackup;
@@ -30,7 +34,12 @@ export default async function Home() {
           neighborTop={technologiesData ? true : false}
         />
       )}
-      <ExperienceSection />
+      {workExperiencesData && educationData && (
+        <ExperienceSection
+          workData={workExperiencesData.data}
+          educationData={educationData.data}
+        />
+      )}
       {projectsData && <ProjectsSection data={projectsData.data} />}
     </>
   );

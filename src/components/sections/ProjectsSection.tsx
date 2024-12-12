@@ -16,7 +16,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 interface ProjectsSectionProps {
@@ -26,7 +26,26 @@ interface ProjectsSectionProps {
 export default function ProjectsSection(props: ProjectsSectionProps) {
   const swiperRef = useRef<SwiperClass | null>(null);
   const [activeSlide, setActiveSlide] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
+  useEffect(() => {
+    const updateIsDesktop = () => {
+      setIsMobile(window.innerWidth < 768);
+      setIsDesktop(window.innerWidth > 1280);
+    };
+
+    // Initial check
+    updateIsDesktop();
+
+    // Add event listener for resize
+    window.addEventListener('resize', updateIsDesktop);
+
+    return () => {
+      // Clean up the event listener
+      window.removeEventListener('resize', updateIsDesktop);
+    };
+  }, []);
   const { data } = props;
 
   const nextSlide = () => {
@@ -55,7 +74,10 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
             className="aspect-square rounded bg-lightBlueBase"
           >
             <span className="flex aspect-square items-center justify-center px-2">
-              <FontAwesomeIcon icon={faChevronLeft} size="2xs" />
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                size={isMobile ? '2xs' : !isDesktop ? 'xs' : 'sm'}
+              />
             </span>
           </button>
           <button
@@ -64,7 +86,10 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
             className="aspect-square rounded bg-lightBlueBase"
           >
             <span className="flex aspect-square items-center justify-center px-2">
-              <FontAwesomeIcon icon={faChevronRight} size="2xs" />
+              <FontAwesomeIcon
+                icon={faChevronRight}
+                size={isMobile ? '2xs' : !isDesktop ? 'xs' : 'sm'}
+              />
             </span>
           </button>
         </section>
