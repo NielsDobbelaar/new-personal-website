@@ -1,4 +1,3 @@
-import Placeholder from '@/components/common/Placeholder';
 import Image from 'next/image';
 
 // Why not checkout some of my lastest blog posts?

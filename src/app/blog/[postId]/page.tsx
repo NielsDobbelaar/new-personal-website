@@ -1,3 +1,4 @@
+import BackButton from '@/components/common/BackButton';
 import Placeholder from '@/components/common/Placeholder';
 import { getBlogPost } from '@/utils/api/getBlogData';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';

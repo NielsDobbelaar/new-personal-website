@@ -51,6 +51,7 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
         <section className="flex flex-row gap-2">
           <button
             onClick={prevSlide}
+            aria-label="Previous project slide"
             className="aspect-square rounded bg-lightBlueBase"
           >
             <span className="flex aspect-square items-center justify-center px-2">
@@ -59,6 +60,7 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
           </button>
           <button
             onClick={nextSlide}
+            aria-label="Previous project slide"
             className="aspect-square rounded bg-lightBlueBase"
           >
             <span className="flex aspect-square items-center justify-center px-2">
@@ -69,6 +71,7 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
       </section>
       <section className="col-span-full sm:mt-8 md:col-span-6 md:col-start-2 lg:col-span-10 lg:col-start-2 2xl:col-span-8 2xl:col-start-3">
         <Swiper
+          id="projectsAnchor"
           className="col-span-full"
           slidesPerView={1.5}
           spaceBetween={12}

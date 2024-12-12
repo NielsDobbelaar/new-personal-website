@@ -31,6 +31,18 @@ export default function TechnologiesSection(props: TechnologiesSectionProps) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const elementTop = element?.offsetTop;
+      const parentTop = element?.offsetParent?.offsetTop;
+      window.scrollTo({
+        top: elementTop + parentTop,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <article className="relative grid w-full grid-cols-8 gap-2 bg-darkBase px-6 py-16 lg:grid-cols-12 lg:gap-4">
       <RoundedSeparator color="darkBase" />
@@ -48,10 +60,16 @@ export default function TechnologiesSection(props: TechnologiesSectionProps) {
             </p>
             {/* Buttons small */}
             <section className="flex shrink-0 flex-col items-end sm:items-start lg:hidden">
-              <button className="bg-none text-sm text-lightBlueBase sm:text-base">
+              <button
+                className="mb-2 bg-none text-sm text-lightBlueBase sm:text-base"
+                onClick={() => scrollTo('projectsAnchor')}
+              >
                 View projects &gt;
               </button>
-              <button className="bg-none text-sm text-lightBlueBase sm:text-base">
+              <button
+                className="bg-none text-sm text-lightBlueBase sm:text-base"
+                onClick={() => scrollTo('experienceAnchor')}
+              >
                 View experience &gt;
               </button>
             </section>
@@ -59,13 +77,13 @@ export default function TechnologiesSection(props: TechnologiesSectionProps) {
             <section className="hidden shrink-0 flex-row gap-4 sm:items-start lg:flex">
               <Button
                 text="View projects"
-                onClick={() => {}}
+                onClick={() => scrollTo('projectsAnchor')}
                 variant="outline"
                 light
               />
               <Button
                 text="View Experience"
-                onClick={() => {}}
+                onClick={() => scrollTo('experienceAnchor')}
                 variant="outline"
                 light
               />

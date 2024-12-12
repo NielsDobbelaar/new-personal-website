@@ -55,6 +55,7 @@ export default function Hero() {
         alt="Hero image showing a computer screen with code"
         width={imageSize}
         height={imageSize}
+        loading="eager"
       />
       <AngledSeparator color="lightBlueBase" bottom />
     </article>

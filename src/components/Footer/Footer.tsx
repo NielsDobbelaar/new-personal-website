@@ -73,7 +73,7 @@ export default function Footer() {
             </section>
             <section className="col-start-10 col-end-12 flex flex-col lg:col-start-11 lg:col-end-11">
               <h2 className="text-3xl font-bold">Socials</h2>
-              <section className="flex flex-row justify-start gap-4">
+              <section className="mt-2 flex flex-row justify-start gap-4">
                 <Link
                   target="_blank"
                   href="https://www.linkedin.com/in/niels-dobbelaar-084619274/"
