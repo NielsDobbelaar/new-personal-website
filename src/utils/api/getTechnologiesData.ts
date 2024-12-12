@@ -9,7 +9,7 @@ const getTechnologiesData = async (): Promise<Technologies | null> => {
     );
     return response.data;
   } catch (error) {
-    console.error('Error fetching about me data:', error);
+    console.error('Error fetching technology data:', error);
     return null;
   }
 };

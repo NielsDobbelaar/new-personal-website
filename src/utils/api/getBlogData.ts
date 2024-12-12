@@ -1,4 +1,4 @@
-import { APIBlogPost, BlogData, BlogPost } from '@/types/blogTypes';
+import { APIBlogPost, BlogData } from '@/types/blogTypes';
 import api from '@/utils/api/api';
 import { AxiosResponse } from 'axios';
 
@@ -23,7 +23,7 @@ export const getBlogPost = async (
     );
     return response.data;
   } catch (error) {
-    console.error('Error fetching about me data:', error);
+    console.error('Error fetching blog data:', error);
     return null;
   }
 };

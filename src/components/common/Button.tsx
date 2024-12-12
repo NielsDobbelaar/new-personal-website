@@ -42,7 +42,7 @@ export default function Button(props: ButtonProps) {
 
   return (
     <button
-      className={`duration-500" group relative flex flex-row items-center justify-between gap-2 rounded-lg p-2 text-center text-sm transition-all md:text-base 2xl:text-xl ${getButtonClasses()}`}
+      className={`group relative flex flex-row items-center justify-between gap-2 rounded-lg p-2 text-center text-sm transition-all duration-500 2xl:text-lg ${getButtonClasses()}`}
       onClick={onClick}
     >
       {text}

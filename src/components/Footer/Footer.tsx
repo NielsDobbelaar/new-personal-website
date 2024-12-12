@@ -1,13 +1,15 @@
 'use client';
 import Button from '@/components/common/Button';
 import RoundedSeparator from '../common/roundedSeparator';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer() {
   const router = useRouter();
+
+  const path = usePathname();
 
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -40,7 +42,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="mt-10 flex w-full grid-cols-12 flex-col bg-white">
+    <footer
+      className={`${path !== '/' && 'mt-10'} flex w-full grid-cols-12 flex-col bg-white`}
+    >
       <article className="relative size-full bg-lightBlueBase px-4 py-10 md:grid md:grid-cols-12">
         <RoundedSeparator color="lightBlueBase" />
         <section className="col-start-2 col-end-5 lg:col-end-6 xl:col-end-5">
@@ -53,7 +57,7 @@ export default function Footer() {
         </section>
         {isDesktop ? (
           <>
-            <section className="col-start-6 col-end-8 flex flex-col gap-4 lg:col-start-7 lg:col-end-7">
+            <section className="col-start-6 col-end-8 flex flex-col gap-4 lg:col-start-7 lg:col-end-9 xl:col-end-8">
               <Button
                 text="Read blog"
                 onClick={navigateToBlog}
