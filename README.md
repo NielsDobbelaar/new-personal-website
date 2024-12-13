@@ -7,7 +7,7 @@
 
 ## About
 
-This is the new and current version of my website. I wanted to make a more professional website looking website with a more professional codebase. I also wanted to use a CMS to make it easier to update the website and to have more practice with api's. I used Strapi as the CMS.
+This is the new and current version of my website. I wanted to make a more professional website looking website with a more professional codebase. I also wanted to use a CMS to make it easier to update the website and to have more practice with api's. I used Strapi as the CMS, Supabase for the DB and Cloudinary for the file storage.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
