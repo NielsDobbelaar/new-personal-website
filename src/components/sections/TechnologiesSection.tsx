@@ -100,7 +100,7 @@ export default function TechnologiesSection(props: TechnologiesSectionProps) {
             >
               <Image
                 className="aspect-square rounded-lg object-contain"
-                src={process.env.NEXT_PUBLIC_BASE_URL + technology.icon.url}
+                src={technology.icon.url}
                 alt={technology.slug}
                 width={100}
                 height={100}

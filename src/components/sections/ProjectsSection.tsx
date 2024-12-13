@@ -106,6 +106,7 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
             640: { slidesPerView: 1.5, spaceBetween: 12 },
             768: { slidesPerView: 1.5, spaceBetween: 16 },
             1024: { slidesPerView: 2.5, spaceBetween: 20 },
+            1536: { slidesPerView: 3, spaceBetween: 20 },
           }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper; // Store the Swiper instance
@@ -119,7 +120,7 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
               <>
                 <Image
                   className="absolute size-full rounded-lg object-cover"
-                  src={process.env.NEXT_PUBLIC_BASE_URL + project.image.url}
+                  src={project.image.url}
                   alt={`cover image: ${project.title}`}
                   width={300}
                   height={200}
@@ -130,7 +131,7 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
                 <section
                   className={`absolute line-clamp-1 flex size-full flex-col p-4 transition-transform duration-300 ease-in-out lg:p-8 ${!(activeSlide === idx) ? 'items-center justify-center' : 'items-start justify-between'}`}
                 >
-                  <div className="max-h-[80%] overflow-scroll">
+                  <div className="scrollbar-track-rounded-full scrollbar-thumb-rounded-full max-h-[80%] overflow-auto rounded-lg pr-2 scrollbar-thin scrollbar-track-gray-900/0 scrollbar-thumb-white md:pr-3">
                     <h4
                       className={`mb-2 text-lg font-semibold text-white sm:text-2xl xl:text-3xl`}
                     >

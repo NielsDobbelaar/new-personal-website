@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss';
 // @ts-expect-error - Tailwind CSS plugin
 import clipPath from 'tailwind-clip-path';
 import typography from '@tailwindcss/typography';
+import scrollBar from 'tailwind-scrollbar';
 
 export default {
   content: [
@@ -14,6 +15,9 @@ export default {
       clipPath: {
         archTop: 'ellipse(50% 100% at 50% 100%)',
         archBottom: 'ellipse(50% 100% at 50% 0%)',
+      },
+      extend: {
+        scrollbar: ['responsive'],
       },
       fontSize: {
         '2xs': ['0.625rem', '0.875rem'],
@@ -28,6 +32,9 @@ export default {
         subtleBorder: '#C8C8C8',
       },
     },
+    variants: {
+      scrollbar: ['rounded'],
+    },
   },
-  plugins: [clipPath, typography],
+  plugins: [clipPath, typography, scrollBar],
 } satisfies Config;

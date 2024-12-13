@@ -40,7 +40,7 @@ export default async function BlogHome() {
                   key={post.documentId}
                 >
                   <Image
-                    src={process.env.NEXT_PUBLIC_BASE_URL + post.image.url}
+                    src={post.image.url}
                     alt={'Cover image: ' + post.Title}
                     className="mb-2 aspect-video w-full rounded-lg object-cover"
                     width={400}

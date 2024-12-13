@@ -12,9 +12,7 @@ export default function AboutMeSection(props: AboutMeData) {
   const { data } = props;
 
   const image =
-    data && data.data.image
-      ? process.env.NEXT_PUBLIC_BASE_URL + data.data.image.url
-      : '/nielsDobbelaar.webp';
+    data && data.data.image ? data.data.image.url : '/nielsDobbelaar.webp';
 
   return (
     <article className="mx-6 mb-32 grid grid-cols-8 gap-2 lg:grid-cols-12 lg:gap-4">

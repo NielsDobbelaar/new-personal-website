@@ -1,5 +1,4 @@
 import NotFound from '@/app/not-found';
-import Placeholder from '@/components/common/Placeholder';
 import { getBlogPost } from '@/utils/api/getBlogData';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import Image from 'next/image';
@@ -21,7 +20,7 @@ export default async function BlogPostPage({
     <article className="relative">
       <section className="prose col-span-full mx-6 mb-16 mt-4 md:mx-auto">
         <Image
-          src={process.env.NEXT_PUBLIC_BASE_URL + blogPost.data.image.url}
+          src={blogPost.data.image.url}
           alt={'cover imaga: ' + blogPost.data.Title}
           className="aspect-video w-full rounded-lg"
           width={1000}
