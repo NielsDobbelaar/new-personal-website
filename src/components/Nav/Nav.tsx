@@ -21,15 +21,17 @@ export default function Nav() {
           alt="My logo!"
         />
       </Link>
-      <div className="block md:hidden">
-        <Button
-          text="Blog"
-          onClick={() => {
-            router.push('/blog');
-          }}
-          variant="outline"
-        />
-      </div>
+      {path !== '/blog' && (
+        <div className="block md:hidden">
+          <Button
+            text="Blog"
+            onClick={() => {
+              router.push('/blog');
+            }}
+            variant="outline"
+          />
+        </div>
+      )}
       <section className="hidden cursor-pointer flex-row items-center gap-8 md:flex">
         <section className="group flex flex-row items-center gap-2 rounded px-2 transition-all duration-300 hover:bg-darkBase">
           {path !== '/blog' && (

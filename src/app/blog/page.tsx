@@ -35,7 +35,7 @@ export default async function BlogHome() {
             >
               {blogposts.data.map((post: BlogPost) => (
                 <Link
-                  className="group rounded-lg transition-all duration-500 hover:bg-darkBase hover:p-4"
+                  className="group rounded-lg p-4 transition-all duration-500 hover:bg-darkBase"
                   href={`/blog/${post.documentId}`}
                   key={post.documentId}
                 >

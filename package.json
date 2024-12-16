@@ -16,6 +16,7 @@
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@tailwindcss/typography": "^0.5.15",
     "axios": "^1.7.9",
+    "axios-cache-interceptor": "^1.6.2",
     "dotenv": "^16.4.7",
     "motion": "^11.14.1",
     "next": "15.0.4",
