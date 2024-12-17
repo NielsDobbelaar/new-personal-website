@@ -19,4 +19,5 @@ if (ttl && parseInt(ttl)) {
   api = setupCache(instance);
 }
 
+// eslint-disable-next-line
 export default api as AxiosCacheInstance;
