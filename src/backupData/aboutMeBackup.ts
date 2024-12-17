@@ -1,6 +1,7 @@
 import AboutMe from '@/types/aboutMeTypes';
 
 const aboutMeBackup: AboutMe = {
+  //@ts-expect-error - This is a backup object not all fields are filled
   data: {
     content: [
       {

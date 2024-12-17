@@ -3,7 +3,7 @@ import getBlogData from '@/utils/api/getBlogData';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const siteUrl = process.env.URL;
+  const siteUrl = process.env.BASE_URL;
 
   const aboutMeData = await getAboutMeData();
   let staticDate = new Date('2024-12-17').toISOString();
