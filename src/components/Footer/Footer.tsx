@@ -81,16 +81,18 @@ export default function Footer() {
                   <Image
                     alt="linkedIn"
                     src="/linkedIn.svg"
-                    height={isDesktop ? 32 : 24}
-                    width={isDesktop ? 32 : 24}
+                    className="size-6 transition-all duration-150 ease-in-out hover:scale-110 hover:bg-white md:size-8"
+                    width={32}
+                    height={32}
                   />
                 </Link>
                 <Link target="_blank" href="https://github.com/NielsDobbelaar">
                   <Image
                     alt="github"
                     src="/github.svg"
-                    height={isDesktop ? 32 : 24}
-                    width={isDesktop ? 32 : 24}
+                    className="size-6 rounded-full transition-all duration-150 ease-in-out hover:scale-110 hover:bg-white md:size-8"
+                    width={32}
+                    height={32}
                   />
                 </Link>
               </section>

@@ -63,7 +63,7 @@ export default function Nav() {
             <Image
               alt="linkedIn"
               src="/linkedIn.svg"
-              className="size-6 md:size-8"
+              className="size-6 transition-all duration-300 ease-in-out hover:scale-110 hover:bg-white md:size-8"
               height={24}
               width={24}
             />
@@ -72,7 +72,7 @@ export default function Nav() {
             <Image
               alt="github"
               src="/github.svg"
-              className="size-6 md:size-8"
+              className="size-6 rounded-full transition-all duration-150 ease-in-out hover:scale-110 hover:bg-white md:size-8"
               height={24}
               width={24}
             />
