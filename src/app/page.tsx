@@ -10,8 +10,13 @@ import getProjectsData from '@/utils/api/getProjectsData';
 import ExperienceSection from '@/components/sections/experienceSection';
 import getWorkExperiencesDate from '@/utils/api/getWorkExperiencesData';
 import getEducationData from '@/utils/api/getEducationData';
+import { Metadata } from 'next';
 
-//backup
+export const metadata: Metadata = {
+  title: 'Niels Dobbelaar - Web Developer',
+  description:
+    'A motivated and enthusiastic frontend/ webdeveloper and UX designer',
+};
 
 export default async function Home() {
   let aboutMeData = await getAboutMeData();

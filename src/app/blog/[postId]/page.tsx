@@ -1,7 +1,30 @@
 import NotFound from '@/app/not-found';
 import { getBlogPost } from '@/utils/api/getBlogData';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import { Metadata } from 'next';
 import Image from 'next/image';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ postId: string }>;
+}): Promise<Metadata> {
+  const postId = (await params).postId;
+  const blogPost = await getBlogPost(postId);
+
+  if (!blogPost) {
+    return {
+      title: 'Blog | Niels Dobbelaar',
+      description:
+        'My personal blog where I write about my experiences and thoughts within the wordt of web development.',
+    };
+  }
+
+  return {
+    title: blogPost.data.Title,
+    description: blogPost.data.subtitle,
+  };
+}
 
 export default async function BlogPostPage({
   params,

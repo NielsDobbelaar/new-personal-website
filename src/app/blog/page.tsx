@@ -3,8 +3,15 @@ import SectionTitle from '@/components/common/SectionTitle';
 import Hero from '@/components/Hero/Hero';
 import { BlogPost } from '@/types/blogTypes';
 import getBlogData from '@/utils/api/getBlogData';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Blog | Niels Dobbelaar',
+  description:
+    'My personal blog where I write about my experiences and thoughts within the wordt of web development.',
+};
 
 export default async function BlogHome() {
   const blogposts = await getBlogData();
