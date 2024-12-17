@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { setupCache } from 'axios-cache-interceptor';
+import { AxiosCacheInstance, setupCache } from 'axios-cache-interceptor';
 
 const instance = Axios.create({
   baseURL: process.env.API_BASE_URL,
@@ -19,4 +19,4 @@ if (ttl && parseInt(ttl)) {
   api = setupCache(instance);
 }
 
-export default api;
+export default api as AxiosCacheInstance;
