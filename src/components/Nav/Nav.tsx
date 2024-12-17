@@ -6,12 +6,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 export default function Nav() {
   const router = useRouter();
   const path = usePathname();
   return (
-    <nav className="flex flex-row justify-between bg-lightBlueBase px-8 py-4">
+    <motion.nav
+      initial={{ scaleX: '200%' }}
+      animate={{ scaleX: '100%' }}
+      transition={{ duration: 0.3 }}
+      className="flex flex-row justify-between bg-lightBlueBase px-8 py-4"
+    >
       <Link href="/">
         <Image
           src="/logo.png"
@@ -73,6 +79,6 @@ export default function Nav() {
           </Link>
         </section>
       </section>
-    </nav>
+    </motion.nav>
   );
 }

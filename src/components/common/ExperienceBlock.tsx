@@ -2,6 +2,7 @@
 
 import { Education, WorkExperience } from '@/types/experienceTypes';
 import SectionTitle from './SectionTitle';
+import { motion } from 'framer-motion';
 
 interface ExperienceBlockProps {
   data: WorkExperience[] | Education[];
@@ -82,9 +83,14 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
           <div
             className={`pb-16 ${idx === 0 && 'pt-8'} ${reversed && 'text-right'}`}
           >
-            <h3 className="line-clamp-1 text-base font-bold md:text-xl lg:text-2xl">
+            <motion.h3
+              initial={{ opacity: 0, x: reversed ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="line-clamp-1 text-base font-bold md:text-xl lg:text-2xl"
+            >
               {experience.title}
-            </h3>
+            </motion.h3>
             {(experience as WorkExperience).started ? (
               <p className="mb-1 text-2xs text-darkBlueBase md:text-xs lg:text-sm">
                 {formatDate((experience as WorkExperience).started)} -{' '}
@@ -95,9 +101,14 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
                 {(experience as Education).institution}
               </p>
             )}
-            <p className="text-justify text-xs md:text-sm lg:text-base">
+            <motion.p
+              initial={{ opacity: 0, x: reversed ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-justify text-xs md:text-sm lg:text-base"
+            >
               {experience.body}
-            </p>
+            </motion.p>
           </div>
         </section>
       ))}

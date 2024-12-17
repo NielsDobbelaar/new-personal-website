@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Button from '../common/Button';
 import AngledSeparator from '../common/AngledSeparator';
+import { motion } from 'framer-motion';
 
 interface TechnologiesSectionProps {
   data: Technologies;
@@ -35,6 +36,7 @@ export default function TechnologiesSection(props: TechnologiesSectionProps) {
     const element = document.getElementById(id);
     if (element) {
       const elementTop = element?.offsetTop;
+      // @ts-expect-error offsetTop does exist, ts doesn't think so TODO
       const parentTop = element?.offsetParent?.offsetTop;
       window.scrollTo({
         top: elementTop + parentTop,
@@ -53,13 +55,23 @@ export default function TechnologiesSection(props: TechnologiesSectionProps) {
             <SectionTitle title="Technologies" color="lightBlueBase" />
           </section>
           <section className="col-span-8 col-start-1 mb-4 flex flex-row items-center justify-between sm:col-span-6 sm:col-start-2 lg:col-span-10 lg:mt-2 lg:flex-col lg:items-start">
-            <p className="block w-3/5 text-sm text-lightBlueBase sm:text-base lg:mb-4 lg:w-full xl:text-lg 2xl:w-3/5">
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 1 }}
+              className="block w-3/5 text-sm text-lightBlueBase sm:text-base lg:mb-4 lg:w-full xl:text-lg 2xl:w-3/5"
+            >
               {isSmallScreen
                 ? 'Some technologies i have experience with!'
                 : 'Some programming languages and frameworks i have experience with!'}
-            </p>
+            </motion.p>
             {/* Buttons small */}
-            <section className="flex shrink-0 flex-col items-end sm:items-start lg:hidden">
+            <motion.section
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex shrink-0 flex-col items-end sm:items-start lg:hidden"
+            >
               <button
                 className="mb-2 bg-none text-sm text-lightBlueBase sm:text-base"
                 onClick={() => scrollTo('projectsAnchor')}
@@ -72,9 +84,14 @@ export default function TechnologiesSection(props: TechnologiesSectionProps) {
               >
                 View experience &gt;
               </button>
-            </section>
+            </motion.section>
             {/* Buttons large */}
-            <section className="hidden shrink-0 flex-row gap-4 sm:items-start lg:flex">
+            <motion.section
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 1 }}
+              className="hidden shrink-0 flex-row gap-4 sm:items-start lg:flex"
+            >
               <Button
                 text="View projects"
                 onClick={() => scrollTo('projectsAnchor')}
@@ -87,25 +104,31 @@ export default function TechnologiesSection(props: TechnologiesSectionProps) {
                 variant="outline"
                 light
               />
-            </section>
+            </motion.section>
           </section>
         </section>
         {/* Technologies */}
         <section className="col-span-6 col-start-2 grid grid-cols-3 gap-2 sm:mx-8 sm:grid-cols-4 lg:mx-0">
           {data.data.map((technology: Technology) => (
-            <Link
-              href={technology.url}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               key={technology.id}
-              className="flex aspect-square items-center justify-center rounded-lg bg-white p-2"
             >
-              <Image
-                className="aspect-square rounded-lg object-contain"
-                src={technology.icon.url}
-                alt={technology.slug}
-                width={100}
-                height={100}
-              />
-            </Link>
+              <Link
+                href={technology.url}
+                className="flex aspect-square items-center justify-center rounded-lg bg-white p-2"
+              >
+                <Image
+                  className="aspect-square rounded-lg object-contain"
+                  src={technology.icon.url}
+                  alt={technology.slug}
+                  width={100}
+                  height={100}
+                />
+              </Link>
+            </motion.div>
           ))}
         </section>
       </section>

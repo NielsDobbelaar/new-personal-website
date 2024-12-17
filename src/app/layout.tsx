@@ -16,7 +16,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html className={dmSans.className} lang="en">
-      <body className="flex min-h-screen flex-col antialiased">
+      <body className="flex min-h-screen flex-col overflow-x-hidden antialiased">
         <header id="topAnchor">
           <Nav />
         </header>
