@@ -19,6 +19,7 @@ const projectsBackupData: ProjectsData = {
         caption: null,
         width: 450,
         height: 300,
+        // @ts-expect-error - formats is missing on backup data
         formats: {
           thumbnail: {
             name: 'thumbnail_snek.webp',
@@ -63,6 +64,7 @@ const projectsBackupData: ProjectsData = {
         caption: null,
         width: 904,
         height: 806,
+        // @ts-expect-error - formats is missing on backup data
         formats: {
           thumbnail: {
             name: 'thumbnail_basil-iq.png',
@@ -131,6 +133,7 @@ const projectsBackupData: ProjectsData = {
         caption: null,
         width: 772,
         height: 698,
+        //@ts-expect-error - formats is missing on backup data
         formats: {
           thumbnail: {
             name: 'thumbnail_oldweb.png',
