@@ -42,7 +42,7 @@ export default function BlogSection(props: BlogSectionProps) {
         {data.map((post: BlogPost, idx: number) => (
           <Link
             href={`/blog/${post.documentId}`}
-            className={`relative col-span-2 flex aspect-square flex-col justify-end rounded-lg bg-darkBase object-cover 2xl:col-span-2 ${idx == 1 ? 'lg:col-span-4 lg:aspect-auto 2xl:col-span-4' : 'lg:col-span-3'}`}
+            className={`relative col-span-2 mt-2 flex aspect-square flex-col justify-end rounded-lg bg-darkBase object-cover transition-all duration-300 hover:-translate-y-1 lg:mt-0 lg:hover:-translate-y-3 2xl:col-span-2 ${idx == 1 ? 'lg:col-span-4 lg:aspect-auto 2xl:col-span-4' : 'lg:col-span-3'}`}
             key={post.id}
           >
             <Image

@@ -1,6 +1,5 @@
 'use client';
 import SectionTitle from '@/components/common/SectionTitle';
-import Button from '@/components/common/Button';
 import AngledSeparator from '../common/AngledSeparator';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -72,24 +71,26 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
           <button
             onClick={prevSlide}
             aria-label="Previous project slide"
-            className="aspect-square rounded bg-lightBlueBase"
+            className="group aspect-square rounded bg-lightBlueBase transition-all duration-300 ease-in-out hover:bg-darkBase"
           >
             <span className="flex aspect-square items-center justify-center px-2">
               <FontAwesomeIcon
                 icon={faChevronLeft}
                 size={isMobile ? '2xs' : !isDesktop ? 'xs' : 'sm'}
+                className="group-hover:text-lightBlueBase"
               />
             </span>
           </button>
           <button
             onClick={nextSlide}
             aria-label="Previous project slide"
-            className="aspect-square rounded bg-lightBlueBase"
+            className="group aspect-square rounded bg-lightBlueBase transition-all duration-300 ease-in-out hover:bg-darkBase"
           >
             <span className="flex aspect-square items-center justify-center px-2">
               <FontAwesomeIcon
                 icon={faChevronRight}
                 size={isMobile ? '2xs' : !isDesktop ? 'xs' : 'sm'}
+                className="group-hover:text-lightBlueBase"
               />
             </span>
           </button>
@@ -109,7 +110,7 @@ export default function ProjectsSection(props: ProjectsSectionProps) {
             1536: { slidesPerView: 3, spaceBetween: 20 },
           }}
           onSwiper={(swiper) => {
-            swiperRef.current = swiper; // Store the Swiper instance
+            swiperRef.current = swiper;
           }}
         >
           {data.map((project: Project, idx: number) => (
