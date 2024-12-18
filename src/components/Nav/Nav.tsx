@@ -12,12 +12,7 @@ export default function Nav() {
   const router = useRouter();
   const path = usePathname();
   return (
-    <motion.nav
-      initial={{ scaleX: '200%' }}
-      animate={{ scaleX: '100%' }}
-      transition={{ duration: 0.3 }}
-      className="flex flex-row justify-between bg-lightBlueBase px-8 py-4"
-    >
+    <motion.nav className="flex flex-row justify-between bg-lightBlueBase px-8 py-4">
       <Link href="/">
         <Image
           src="/logo.png"
@@ -63,7 +58,7 @@ export default function Nav() {
             <Image
               alt="linkedIn"
               src="/linkedIn.svg"
-              className="size-6 transition-all duration-300 ease-in-out hover:scale-110 hover:bg-white md:size-8"
+              className="size-6 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white md:size-8"
               height={24}
               width={24}
             />
@@ -72,7 +67,7 @@ export default function Nav() {
             <Image
               alt="github"
               src="/github.svg"
-              className="size-6 rounded-full transition-all duration-150 ease-in-out hover:scale-110 hover:bg-white md:size-8"
+              className="size-6 rounded-full transition-all duration-150 ease-in-out hover:scale-105 hover:bg-white md:size-8"
               height={24}
               width={24}
             />

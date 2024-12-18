@@ -3,6 +3,7 @@ import { AxiosCacheInstance, setupCache } from 'axios-cache-interceptor';
 
 const instance = Axios.create({
   baseURL: process.env.API_BASE_URL,
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${process.env.API_TOKEN}`,
