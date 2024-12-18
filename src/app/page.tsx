@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     'A motivated and enthusiastic frontend/ webdeveloper and UX designer',
 };
 
+// forced dynamic so that the page is always rendered on the server - remove this - move logic from axios to fetch todo
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   let aboutMeData = await getAboutMeData();
   const technologiesData = await getTechnologiesData();

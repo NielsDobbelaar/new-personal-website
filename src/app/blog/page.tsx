@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     'My personal blog where I write about my experiences and thoughts within the wordt of web development.',
 };
 
+// forced dynamic so that the page is always rendered on the server - remove this - move logic from axios to fetch
+export const dynamic = 'force-dynamic';
+
 export default async function BlogHome() {
   const blogposts = await getBlogData();
 
