@@ -10,6 +10,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html className={dmSans.className} lang="en">
+      <head>
+        <script
+          defer
+          data-domain="nielsdobbelaar.nl"
+          src="https://analytics.nielsdobbelaar.nl/js/script.js"
+        ></script>
+      </head>
       <body className="flex min-h-screen flex-col overflow-x-hidden antialiased">
         <header id="topAnchor">
           <Nav />
