@@ -42,7 +42,7 @@ export default async function BlogHome() {
             <section
               className={`col-span-8 col-start-1 mb-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ${calculateCols(blogposts.data)}`}
             >
-              {blogposts.data.map((post: BlogPost) => (
+              {blogposts.data.reverse().map((post: BlogPost) => (
                 <Link
                   className="group rounded-lg p-4 transition-all duration-500 hover:bg-darkBase"
                   href={`/blog/${post.documentId}`}

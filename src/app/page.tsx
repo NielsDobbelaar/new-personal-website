@@ -58,7 +58,7 @@ export default async function Home() {
       {technologiesData && <TechnologiesSection data={technologiesData} />}
       {blogData && blogData.data.length > 1 && (
         <BlogSection
-          data={blogData.data.slice(0, 2)}
+          data={blogData.data.reverse().slice(0, 2)}
           neighborTop={technologiesData ? true : false}
         />
       )}
